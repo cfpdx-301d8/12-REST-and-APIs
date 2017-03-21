@@ -7,9 +7,17 @@
 
   repos.requestRepos = function(callback) {
     // TODO: How would you like to fetch your repos? Don't forget to call the callback.
-
+    $.ajax('https://api.github.com/users/MartinPelayo/repos', {
+      method: 'GET',
+      headers: {Authorization: 'token ' + credential}
+    }).then((res) => {
+      res.forEach(function(el){
+        repos.all.push(el);
+        console.log(repos.all);
+      })
+    }).catch((err) => {console.error})
+    callback();
   };
-
   // REVIEW: Model method that filters the full collection for repos with a particular attribute.
   // You could use this to filter all repos that have a non-zero `forks_count`, `stargazers_count`, or `watchers_count`.
   repos.with = attr => repos.all.filter(repo => repo[attr]);
