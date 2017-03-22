@@ -8,17 +8,15 @@
   repos.requestRepos = function(callback) {
     $.ajax('https://api.github.com/users/mofo37/repos', {
       method:'GET',
-      headers: {Authorization: 'token ' + token}
     }).then((res) => {
-      console.log(res);
+      var filteredRepos = res.filter(r => r.fork === false);
+      repos.all = filteredRepos;
       callback();
     }) .catch((err) => {console.error})
   };
 
-  repos.requestRepos(function () {
+  
 
-    // return template(repo);
-  });
 
     // Done/TODO: How would you like to fetch your repos? Don't forget to call the callback.
 
