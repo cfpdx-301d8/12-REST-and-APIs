@@ -11,12 +11,11 @@
     $about.show().siblings().hide();
   };
 
-  // TODO: Remember that new Handlebars template? Let's compile it!
+  // Done/TODO: Remember that new Handlebars template? Let's compile it!
   // Save the result in this `render` variable.
   function render(repo) {
     var source = $('#repo-template').html();
     var template = Handlebars.compile(source);
-
     return template(repo);
   }
 
@@ -31,3 +30,4 @@
 
   module.repoView = repoView;
 })(window);
+

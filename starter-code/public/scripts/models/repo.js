@@ -11,9 +11,15 @@
       headers: {Authorization: 'token ' + token}
     }).then((res) => {
       console.log(res);
+      callback();
     }) .catch((err) => {console.error})
   };
-repos.requestRepos();
+
+  repos.requestRepos(function () {
+
+    // return template(repo);
+  });
+
     // Done/TODO: How would you like to fetch your repos? Don't forget to call the callback.
 
 
