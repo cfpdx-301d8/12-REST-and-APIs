@@ -16,7 +16,7 @@
   function render(repo) {
     var source = $('#repo-template').html();
     var template = Handlebars.compile(source);
-   
+
     return template(repo);
   }
 

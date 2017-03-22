@@ -13,14 +13,13 @@
       }
     })
     .then((result) => {
-      repos.all.map(function() {
-        console.log(repos.all)
-        return result;
+      result.map(function(ele) {
+        repos.all.push(ele)
+        callback();
       })
-    .catch(err => console.error)
+    })
+    .catch((err) => {console.error})
     // TODO: How would you like to fetch your repos? Don't forget to call the callback.
-      callback();
-    });
   }
 
   // REVIEW: Model method that filters the full collection for repos with a particular attribute.
